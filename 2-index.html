@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNDERCLASS - The Model Issue</title>
+<meta name="description" content="UNDERCLASS special edition: The Model Issue. Posters for the week the machines shipped.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F2EFE6;--ink:#101010;--acid:#D8FF00;--grey:#6b6b66;--rule:2px solid var(--ink)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--ink);font-family:'IBM Plex Mono',monospace}
+  ::selection{background:var(--acid);color:var(--ink)}
+  a{color:inherit}
+  .topbar{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:12px 22px;border-bottom:var(--rule);background:var(--paper)}
+  .wordmark{font-family:'Anton',Impact,sans-serif;font-size:24px;letter-spacing:.02em;text-decoration:none;text-transform:uppercase;line-height:1}
+  .wordmark span{background:var(--acid);padding:0 6px}
+  .topnav{display:flex;gap:14px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  .topnav a{text-decoration:none;border:1px solid var(--ink);padding:4px 8px}
+  .topnav a:hover{background:var(--acid)}
+  @media(max-width:760px){.topnav{display:none}}
+
+  .poster{position:relative;min-height:96vh;background:var(--paper);border-bottom:var(--rule);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--ink)}
+  .mast{display:flex;justify-content:space-between;align-items:center;padding:14px 26px;border-bottom:var(--rule);font-size:10px;letter-spacing:.16em;text-transform:uppercase;flex:0 0 auto}
+  .mast .no{font-family:'Anton',Impact,sans-serif;font-size:15px;letter-spacing:.04em}
+  .body{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;padding:5vh 6vw;position:relative;z-index:2}
+  .kick{font-size:clamp(10px,1.2vw,13px);letter-spacing:.3em;text-transform:uppercase;margin-bottom:2.4vh;font-weight:600}
+  .hed{font-family:'Anton',Impact,sans-serif;text-transform:uppercase;line-height:.9;letter-spacing:-.01em;font-size:clamp(52px,11vw,170px)}
+  .hed em{font-style:normal;background:var(--acid);padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .sub{margin-top:3vh;font-size:clamp(12px,1.6vw,17px);line-height:1.65;max-width:44em}
+  .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:16px 26px 20px;border-top:var(--rule);font-size:10px;letter-spacing:.14em;text-transform:uppercase;flex:0 0 auto;flex-wrap:wrap}
+  .barcode{width:110px;height:30px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,var(--ink) 5px 6px,transparent 6px 11px,var(--ink) 11px 14px,transparent 14px 17px)}
+  .halftone{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(rgba(16,16,16,.14) 1px,transparent 1.6px);background-size:9px 9px}
+  .bigindex{position:absolute;right:-2vw;bottom:-6vh;z-index:1;font-family:'Anton',Impact,sans-serif;font-size:44vh;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(16,16,16,.16);pointer-events:none}
+
+  /* cover */
+  .p-cover .body{justify-content:space-between;padding-top:7vh;padding-bottom:7vh}
+  .p-cover .hed{font-size:clamp(64px,13.5vw,220px)}
+  .covermeta{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:clamp(10px,1.1vw,12px);letter-spacing:.14em;text-transform:uppercase;border-top:var(--rule);padding-top:18px}
+  .stamp{position:absolute;top:16vh;right:5vw;z-index:3;transform:rotate(9deg);border:3px solid var(--ink);padding:10px 16px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;background:var(--paper);font-weight:600}
+
+  /* dark posters */
+  .dark{background:var(--ink);color:var(--paper)}
+  .dark .mast,.dark .foot{border-color:var(--paper)}
+  .dark .barcode{background:repeating-linear-gradient(90deg,var(--paper) 0 2px,transparent 2px 5px,var(--paper) 5px 6px,transparent 6px 11px,var(--paper) 11px 14px,transparent 14px 17px)}
+  .dark .halftone{background-image:radial-gradient(rgba(242,239,230,.12) 1px,transparent 1.6px)}
+  .dark .bigindex{-webkit-text-stroke:2px rgba(242,239,230,.14)}
+
+  /* acid poster */
+  .acidbg{background:var(--acid);color:var(--ink)}
+  .acidbg .mast,.acidbg .foot{border-color:var(--ink)}
+  .acidbg .hed em{background:var(--ink);color:var(--acid)}
+  .acidbg .halftone{background-image:radial-gradient(rgba(16,16,16,.16) 1px,transparent 1.6px)}
+
+  .eye{position:absolute;z-index:1;top:50%;right:8vw;transform:translateY(-50%);width:34vmin;height:34vmin;border-radius:50%;background:radial-gradient(circle at 50% 50%,var(--acid) 0 18%,var(--paper) 18% 34%,transparent 34% 100%);border:2px solid rgba(242,239,230,.5);pointer-events:none}
+  .grid-bg{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(rgba(242,239,230,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(242,239,230,.13) 1px,transparent 1px);background-size:64px 64px;transform:perspective(700px) rotateX(24deg) scale(1.4);transform-origin:bottom}
+  .trio{display:flex;gap:2vw;margin-top:4vh;flex-wrap:wrap}
+  .trio div{border:var(--rule);padding:12px 16px;font-size:clamp(10px,1.1vw,12px);letter-spacing:.1em;text-transform:uppercase;background:var(--paper);font-weight:600}
+  .vert{position:absolute;left:2.2vw;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:10px;letter-spacing:.4em;text-transform:uppercase;z-index:3;opacity:.85}
+
+  .colophon{background:var(--paper);padding:9vh 6vw;border-bottom:var(--rule)}
+  .colophon h2{font-family:'Anton',Impact,sans-serif;text-transform:uppercase;font-size:clamp(30px,4.5vw,54px);line-height:1;margin-bottom:4vh}
+  .colophon h2 em{font-style:normal;background:var(--acid);padding:0 8px}
+  .sources{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;border:var(--rule)}
+  .sources a{display:block;padding:16px 18px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);text-decoration:none;font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.8}
+  .sources a:hover{background:var(--acid)}
+  .sources a b{display:block;font-family:'Anton',Impact,sans-serif;font-size:17px;letter-spacing:.03em;font-weight:400}
+  .colophon p{margin-top:4vh;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#4c4a44;line-height:2;max-width:70em}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="https://jacobegarcia.github.io/underclass/">UNDER<span>CLASS</span></a>
+  <nav class="topnav">
+    <a href="#cover">Cover</a><a href="#astra">01 Astra</a><a href="#fable">02 Fable</a><a href="#flash">03 Flash</a><a href="#atlas">04 Atlas</a><a href="#worlds">05 Worlds</a><a href="#sources">Sources</a>
+  </nav>
+</header>
+
+<!-- COVER -->
+<section class="poster p-cover" id="cover">
+  <div class="halftone"></div>
+  <div class="stamp">Special edition &middot; Free</div>
+  <div class="mast"><span class="no">UNDERCLASS</span><span>People, technology, and the speed at which one is eating the other</span><span>Fall 2026</span></div>
+  <div class="body">
+    <div>
+      <div class="kick">The week the machines shipped &middot; Six posters &middot; Zero think pieces</div>
+      <h1 class="hed">THE<br><em>MODEL</em><br>ISSUE</h1>
+    </div>
+    <div class="covermeta">
+      <span>GPT-6 Astra &middot; Claude Fable 5.1 &middot; Gemini 3.8 Flash</span>
+      <span>Atlas &middot; GWM Worlds 2 &middot; H3-World &middot; SolarWM</span>
+      <span>Chicago &middot; Set in Anton &amp; Plex Mono</span>
+    </div>
+  </div>
+  <div class="foot"><span>Poster 00 / 06</span><span class="barcode"></span><span>jacobegarcia.github.io/underclass-model-issue</span></div>
+</section>
+
+<!-- ASTRA -->
+<a class="poster dark" id="astra" href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener">
+  <div class="halftone"></div><div class="eye"></div>
+  <div class="vert">OpenAI &middot; September 2026</div>
+  <div class="mast"><span class="no">No. 01</span><span>Frontier Language Model Division</span><span>OpenAI</span></div>
+  <div class="body">
+    <div class="kick">GPT-6 Astra &middot; OpenAI</div>
+    <h2 class="hed">IT READS<br><em>EVERY</em><br>ROOM</h2>
+    <p class="sub">A new generation of intelligence arrived on a weekday, the way weather does. It summarizes your meeting, your inbox, and the decade. Attendance was not optional.</p>
+  </div>
+  <div class="foot"><span>Poster 01 / 06 &middot; Click for the announcement</span><span class="barcode"></span><span>openai.com/index/gpt-6-astra</span></div>
+</a>
+
+<!-- FABLE -->
+<a class="poster" id="fable" href="https://www.anthropic.com/claude-fable-and-mythos-5-1" target="_blank" rel="noopener">
+  <div class="halftone"></div><div class="bigindex">02</div>
+  <div class="vert">Anthropic &middot; September 2026</div>
+  <div class="mast"><span class="no">No. 02</span><span>Department of Bedtime Stories</span><span>Anthropic</span></div>
+  <div class="body">
+    <div class="kick">Claude Fable 5.1 &amp; Mythos 5.1 &middot; Anthropic</div>
+    <h2 class="hed">IT WILL TELL<br>YOU A STORY<br>ABOUT <em>YOUR</em><br>OBSOLESCENCE</h2>
+    <p class="sub">It is, to be fair, a beautiful story. You will cry. It will not. Two new models, one fable, no moral.</p>
+  </div>
+  <div class="foot"><span>Poster 02 / 06 &middot; Click for the announcement</span><span class="barcode"></span><span>anthropic.com/claude-fable-and-mythos-5-1</span></div>
+</a>
+
+<!-- FLASH -->
+<a class="poster acidbg" id="flash" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/" target="_blank" rel="noopener">
+  <div class="halftone"></div>
+  <div class="vert">Google DeepMind &middot; September 2026</div>
+  <div class="mast"><span class="no">No. 03</span><span>Bureau of Speed</span><span>Google DeepMind</span></div>
+  <div class="body">
+    <div class="kick">Gemini 3.8 Flash &amp; 3.8 Flash Cyber &middot; Google</div>
+    <h2 class="hed">FASTER<br>THAN THE<br><em>THOUGHT</em></h2>
+    <p class="sub">Now with less thinking per thought. The benchmark you cared about was latency, and the latency is gone. Blink and it has already replied to this poster.</p>
+  </div>
+  <div class="foot"><span>Poster 03 / 06 &middot; Click for the announcement</span><span class="barcode"></span><span>blog.google &middot; gemini 3.8 flash</span></div>
+</a>
+
+<!-- ATLAS -->
+<a class="poster dark" id="atlas" href="https://www.worldlabs.ai/blog/atlas" target="_blank" rel="noopener">
+  <div class="grid-bg"></div>
+  <div class="vert">World Labs &middot; September 2026</div>
+  <div class="mast"><span class="no">No. 04</span><span>Ministry of Spatial Intelligence</span><span>World Labs</span></div>
+  <div class="body">
+    <div class="kick">Atlas &middot; World Labs</div>
+    <h2 class="hed">ONE <em>PHOTO</em>.<br>ONE <em>WORLD</em>.</h2>
+    <p class="sub">Feed it a picture of your street and walk around inside it for a minute at 1440p. Reality has been discontinued while supplies last.</p>
+  </div>
+  <div class="foot"><span>Poster 04 / 06 &middot; Click for the announcement</span><span class="barcode"></span><span>worldlabs.ai/blog/atlas</span></div>
+</a>
+
+<!-- WORLD MODELS -->
+<a class="poster" id="worlds" href="https://runway.com/research/introducing-gwm-worlds-2" target="_blank" rel="noopener">
+  <div class="halftone"></div><div class="bigindex">05</div>
+  <div class="vert">Runway &middot; MiniMax &middot; Wan2.2 &middot; September 2026</div>
+  <div class="mast"><span class="no">No. 05</span><span>Committee for Playable Worlds</span><span>Three labs, one door</span></div>
+  <div class="body">
+    <div class="kick">GWM Worlds 2 &middot; H3-World &middot; SolarWM</div>
+    <h2 class="hed">PRESS <em>WASD</em><br>TO BELIEVE</h2>
+    <p class="sub">Three world models shipped in one season. Each rendered you a door and held it open. You still live here, but here is getting competitive.</p>
+    <div class="trio"><div>GWM Worlds 2 &middot; Runway &middot; real-time</div><div>H3-World &middot; 65.6M LoRA &middot; open</div><div>SolarWM &middot; Wan2.2-5B &middot; open</div></div>
+  </div>
+  <div class="foot"><span>Poster 05 / 06 &middot; Click for Runway's announcement</span><span class="barcode"></span><span>runway.com &middot; danzer1xxxxchan.github.io &middot; junchao-cs.github.io</span></div>
+</a>
+
+<!-- COLOPHON -->
+<section class="colophon" id="sources">
+  <h2>SOURCES &amp; <em>COLPHON</em></h2>
+  <div class="sources">
+    <a href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener"><b>GPT-6 Astra</b>OpenAI &middot; openai.com/index/gpt-6-astra</a>
+    <a href="https://www.anthropic.com/claude-fable-and-mythos-5-1" target="_blank" rel="noopener"><b>Claude Fable 5.1 &amp; Mythos 5.1</b>Anthropic &middot; anthropic.com/claude-fable-and-mythos-5-1</a>
+    <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/" target="_blank" rel="noopener"><b>Gemini 3.8 Flash</b>Google &middot; blog.google/innovation-and-ai</a>
+    <a href="https://www.worldlabs.ai/blog/atlas" target="_blank" rel="noopener"><b>Atlas</b>World Labs &middot; worldlabs.ai/blog/atlas</a>
+    <a href="https://runway.com/research/introducing-gwm-worlds-2" target="_blank" rel="noopener"><b>GWM Worlds 2</b>Runway &middot; runway.com/research/introducing-gwm-worlds-2</a>
+    <a href="https://danzer1xxxxchan.github.io/H3-World/" target="_blank" rel="noopener"><b>H3-World</b>MiniMax-H3 &middot; danzer1xxxxchan.github.io/H3-World</a>
+    <a href="https://junchao-cs.github.io/SolarWM-Web/" target="_blank" rel="noopener"><b>SolarWM</b>Wan2.2 &middot; junchao-cs.github.io/SolarWM-Web</a>
+  </div>
+  <p>UNDERCLASS is a magazine about people, technology, and the speed at which one is eating the other. The Model Issue is a poster supplement to Issue 01: The Acceleration, whose living cover you can walk at jacobegarcia.github.io/underclass-01. All models belong to their respective labs. All opinions belong to the sidewalk. Chicago, Fall 2026.</p>
+</section>
+
+</body>
+</html>
